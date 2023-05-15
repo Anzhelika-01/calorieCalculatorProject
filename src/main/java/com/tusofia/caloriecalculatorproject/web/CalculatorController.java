@@ -2,6 +2,7 @@ package com.tusofia.caloriecalculatorproject.web;
 
 import com.tusofia.caloriecalculatorproject.dto.CalculatorForm;
 import com.tusofia.caloriecalculatorproject.service.CalorieCalculator;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,7 @@ public class CalculatorController extends BaseController{
     }
 
     @PostMapping("/calorie-calculator")
-    public void calculateCalories(@ModelAttribute("calculatorForm") CalculatorForm calculatorForm,
+    public ModelAndView calculateCalories(@Valid @ModelAttribute(name = "calculatorForm") CalculatorForm calculatorForm,
                                   BindingResult result, RedirectAttributes redirectAttributes,
                                   Model model) {
 
@@ -41,6 +42,7 @@ public class CalculatorController extends BaseController{
             redirectAttributes.addFlashAttribute("calculatorForm", calculatorForm)
                     .addFlashAttribute(BINDING_RESULT_PATH + "calculatorForm", result);
 
+            return super.view("calorie-calculator");
         }
 
         double caloriesPerDay = calorieCalculator.calculateCalories(calculatorForm.getSex(),
@@ -48,7 +50,10 @@ public class CalculatorController extends BaseController{
                 calculatorForm.getAge(), calculatorForm.getActivityLevel());
 
         model.addAttribute("caloriesPerDay", caloriesPerDay);
+
+        return super.redirect("calorie-calculator");
     }
+
 
     @ModelAttribute(name = "calculatorForm")
     public CalculatorForm getCalculatorForm() {

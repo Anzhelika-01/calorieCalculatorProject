@@ -1,7 +1,8 @@
 package com.tusofia.caloriecalculatorproject.dto;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Setter
@@ -10,16 +11,20 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class CalculatorForm {
+
     @NotNull
     public String sex;
 
-    @Size(min = 10, max = 300)
+    @Min(10)
+    @Max(300)
     public double weight;
 
-    @Size(min = 20, max = 250)
+    @Min(20)
+    @Max(250)
     public double height;
 
-    @Size(min = 7, max = 100)
+    @Min(7)
+    @Max(100)
     public int age;
 
     @NotNull
