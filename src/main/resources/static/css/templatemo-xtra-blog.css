@@ -1,0 +1,49 @@
+body {
+    background-image: url("../img/healthy-food-composition-with-alarm.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 19px;
+    line-height: 2em;
+}
+
+button {
+    background-color: #00cccc;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.calculator-container {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.calculator-container .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.calculator-container .row .col-lg-7 {
+    text-align: center;
+}
