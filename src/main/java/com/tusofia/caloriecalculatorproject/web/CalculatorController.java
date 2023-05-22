@@ -51,7 +51,7 @@ public class CalculatorController extends BaseController{
 
         model.addAttribute("caloriesPerDay", caloriesPerDay);
 
-        return super.redirect("calorie-calculator");
+        return super.view("calorie-calculator");
     }
 
 
